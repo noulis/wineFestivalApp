@@ -15,4 +15,10 @@
         <item name="colorAccent">#FBCA90</item>
     </style>
 
+    <style name="horizontalSeparator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/colorGray</item>
+    </style>
+
 </resources>
