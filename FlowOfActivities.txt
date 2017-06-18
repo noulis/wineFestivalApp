@@ -1,0 +1,19 @@
+Main Activity probably in gridview or listview with icons proposing the below activities:
+
+- about fest (grape photo faded out and text view in front of it)
+
+- about zitsa (zitsa photo from drone grayscale and textview in front of it)
+
+- fest program (the photo of the program as such - or maybe redraw the program in a layout)
+
+- how to get there (map view)
+
+- about wine factories (3 segments with photo and text on after the other in a scroll view)
+
+- gallery (scrollview with photos of the fest)
+
+- contest (link fb page in order to take part)
+
+- tickets / prices
+
+- lottery / prizes
