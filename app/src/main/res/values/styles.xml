@@ -12,7 +12,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#FBCA90</item>
         <item name="colorPrimaryDark">#D9AE7C</item>
-        <item name="colorAccent">#F9F7BD</item>
+        <item name="colorAccent">#FBCA90</item>
     </style>
 
 </resources>

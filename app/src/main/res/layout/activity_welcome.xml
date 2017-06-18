@@ -7,9 +7,6 @@
     tools:context="com.example.noulis.winefestivalapplication.WelcomeActivity">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
@@ -24,11 +21,31 @@
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/welcome_image"/>
 
-    <ProgressBar
-        android:id="@+id/progressBar2"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"/>
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:id="@+id/progressBar2"
+                android:background="@color/colorLightBackground"/>
+
+            <TextView
+                android:id="@+id/daysTillFestival"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00000000"
+                android:textColor="@color/colorGray"
+                android:textAlignment="center"
+                android:textSize="15dp"
+                android:layout_alignLeft="@id/progressBar2"
+                android:layout_alignTop="@id/progressBar2"
+                android:layout_alignRight="@id/progressBar2"
+                android:layout_alignBottom="@id/progressBar2"/>
+
+        </RelativeLayout>
 
 </LinearLayout>
 
