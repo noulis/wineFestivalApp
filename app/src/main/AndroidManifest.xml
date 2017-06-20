@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeYellow">
 
-        <activity android:name=".WelcomeActivity">
+        <activity
+            android:name=".WelcomeActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -19,7 +21,9 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="Γιορτή Κρασιού Ζίτσας">
+            android:label="Γιορτή Κρασιού Ζίτσας"
+            android:exported="true"
+            android:screenOrientation="portrait">
         </activity>
 
     </application>
