@@ -80,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // todo: check if an alert is needed if phone is not connected to the internet advising user to go to settings
+
     private void connectToFacebook(Context context) {
         PackageManager packageManager = context.getPackageManager();
         String correctURL = "";
