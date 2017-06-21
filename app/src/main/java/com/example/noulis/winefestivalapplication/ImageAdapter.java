@@ -41,15 +41,15 @@ public class ImageAdapter extends BaseAdapter {
 
             String item = item_values[position];
 
-            if (item.equals("Πώς να πας"))
+            if (item.equals("Χάρητς"))
                 imageView.setImageResource(R.drawable.google_maps_icon);
             else if (item.equals("Facebook"))
                 imageView.setImageResource(R.drawable.facebook_logo);
             else if (item.equals("Twitter"))
                 imageView.setImageResource(R.drawable.twitter_icon);
-            else if (item.equals("Για τη γιορτή"))
+            else if (item.equals("Γιορτή Κρασιού"))
                 imageView.setImageResource(R.drawable.grape_icon);
-            else if (item.equals("Για τη Ζίτσα"))
+            else if (item.equals("Ζίτσα"))
                 imageView.setImageResource(R.drawable.dimos_zitsas);
             else
                 imageView.setImageResource(R.drawable.android_logo);

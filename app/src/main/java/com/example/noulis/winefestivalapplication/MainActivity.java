@@ -18,15 +18,15 @@ public class MainActivity extends AppCompatActivity {
     public static String FACEBOOK_PAGE_ID = "GOgVVVaeFgG";
 
     GridView gridView;
-    static final String[] grid_options = new String[] {
+    static final String[] grid_options = new String[]{
             "Πρόγραμμα",
-            "Πώς να πας",
+            "Χάρτης",
             "Εισητήρια",
             "Λαχειοφόρος Αγορά",
             "Φωτογραφίες",
-            "Για τη γιορτή",
-            "Για τη Ζίτσα",
-            "Για τα οινοποιεία",
+            "Γιορτή Κρασιού",
+            "Ζίτσα",
+            "Οινοποιεία",
             "Facebook",
             "Twitter"};
 
@@ -40,39 +40,37 @@ public class MainActivity extends AppCompatActivity {
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                switch (((TextView)v.findViewById(R.id.grid_item_label)).getText().toString()) {
+                switch (((TextView) v.findViewById(R.id.grid_item_label)).getText().toString()) {
                     case "Πρόγραμμα":
-                        //getApplicationContext().startActivity(new Intent(getApplicationContext(), ProgramActivity.class));
+                        getApplicationContext().startActivity(new Intent(getApplicationContext(), ProgramActivity.class));
                         break;
-                    case "Πώς να πας":
+                    case "Χάρτης":
+                        // todo: create map activity
                         //getApplicationContext().startActivity(new Intent(getApplicationContext(), MapActivity.class));
                         break;
                     case "Εισητήρια":
-                        //getApplicationContext().startActivity(new Intent(getApplicationContext(), TicketsActivity.class));
+                        getApplicationContext().startActivity(new Intent(getApplicationContext(), TicketsActivity.class));
                         break;
                     case "Λαχειοφόρος Αγορά":
-                        //getApplicationContext().startActivity(new Intent(getApplicationContext(), LotteryActivity.class));
+                        getApplicationContext().startActivity(new Intent(getApplicationContext(), LotteryActivity.class));
                         break;
                     case "Φωτογραφίες":
-                        //getApplicationContext().startActivity(new Intent(getApplicationContext(), PhotosActivity.class));
+                        getApplicationContext().startActivity(new Intent(getApplicationContext(), PhotosActivity.class));
                         break;
-                    case "Για τη γιορτή":
-                        //getApplicationContext().startActivity(new Intent(getApplicationContext(), AboutFestActivity.class));
+                    case "Γιορτή Κρασιού":
+                        getApplicationContext().startActivity(new Intent(getApplicationContext(), AboutFestActivity.class));
                         break;
-                    case "Για τη Ζίτσα":
-                        //getApplicationContext().startActivity(new Intent(getApplicationContext(), AboutZitsaActivity.class));
+                    case "Ζίτσα":
+                        getApplicationContext().startActivity(new Intent(getApplicationContext(), AboutZitsaActivity.class));
                         break;
-                    case "Για τα οινοποιεία":
-                        //getApplicationContext().startActivity(new Intent(getApplicationContext(), AboutWineriesActivity.class));
+                    case "Οινοποιεία":
+                        getApplicationContext().startActivity(new Intent(getApplicationContext(), AboutWineriesActivity.class));
                         break;
                     case "Facebook":
-                        Intent facebookIntent = new Intent(Intent.ACTION_VIEW);
-                        String facebookUrl = getFacebookPageURL(getApplicationContext());
-                        facebookIntent.setData(Uri.parse(facebookUrl));
-                        startActivity(facebookIntent);
+                        connectToFacebook(getApplicationContext());
                         break;
                     case "Twitter":
-                        Toast.makeText(getApplicationContext(), "Go to Twitter page", Toast.LENGTH_SHORT).show();
+                        connectToTwitter(getApplicationContext());
                         break;
                     default:
                         Toast.makeText(getApplicationContext(), "Please select again", Toast.LENGTH_SHORT).show();
@@ -82,17 +80,33 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public String getFacebookPageURL(Context context) {
+    private void connectToFacebook(Context context) {
         PackageManager packageManager = context.getPackageManager();
+        String correctURL = "";
         try {
             int versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode;
             if (versionCode >= 3002850)
-                return "fb://facewebmodal/f?href=" + FACEBOOK_URL;
+                correctURL =  "fb://facewebmodal/f?href=" + FACEBOOK_URL;
             else
-                return "fb://page/" + FACEBOOK_PAGE_ID;
+                correctURL = "fb://page/" + FACEBOOK_PAGE_ID;
         } catch (PackageManager.NameNotFoundException e) {
-            return FACEBOOK_URL;
+            correctURL = FACEBOOK_URL;
         }
+        Intent facebookIntent = new Intent(Intent.ACTION_VIEW);
+        facebookIntent.setData(Uri.parse(correctURL));
+        startActivity(facebookIntent);
+    }
+
+    private void connectToTwitter(Context context) {
+        Intent twitterIntent = null;
+        try {
+            context.getPackageManager().getPackageInfo("com.twitter.android", 0);
+            twitterIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?user_id=TheEllenShow"));
+            twitterIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        } catch (Exception e) {
+            twitterIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/TheEllenShow"));
+        }
+        this.startActivity(twitterIntent);
     }
 
 }

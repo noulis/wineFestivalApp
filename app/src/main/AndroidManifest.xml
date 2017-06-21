@@ -21,10 +21,44 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="Γιορτή Κρασιού Ζίτσας"
             android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
+            android:label="Γιορτή Κρασιού Ζίτσας"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".ProgramActivity"
+            android:exported="true"
+            android:label="Πρόγραμμα"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".TicketsActivity"
+            android:exported="true"
+            android:label="Εισητήρια"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".LotteryActivity"
+            android:exported="true"
+            android:label="Λαχειοφόρος Αγορά"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".PhotosActivity"
+            android:exported="true"
+            android:label="Φωτογραφίες"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".AboutFestActivity"
+            android:exported="true"
+            android:label="Γιορτή Κρασιού"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".AboutZitsaActivity"
+            android:exported="true"
+            android:label="Ζίτσα"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".AboutWineriesActivity"
+            android:exported="true"
+            android:label="Τα οινοποιεία της Ζίτσας"
+            android:screenOrientation="portrait" />
 
     </application>
 
